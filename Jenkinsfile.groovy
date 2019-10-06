@@ -39,7 +39,7 @@ pipeline {
             steps{
                 script {
                     dir ('Arquivos'){ //Fetch dos arquivos repositório do projeto para a pasta Arquivos, dentro do workspace do Jenkins
-                        checkout([$class: 'GitSCM', branches: [[name: "dev_docker"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], gitTool: '${gitInit}', submoduleCfg: [], userRemoteConfigs: [[credentialsId: credentialId, url: "https://github.com/matheusvt2/jenkins-python-full-pipeline.git"]]])
+                        checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], gitTool: '${gitInit}', submoduleCfg: [], userRemoteConfigs: [[credentialsId: credentialId, url: "https://github.com/matheusvt2/jenkins-python-full-pipeline.git"]]])
                     }
 
                     tools = load "${WORKSPACE}/Arquivos/Jenkins/jenkins-python-full-pipeline.groovy"  //Carrega dados do arquivo de config deste projeto na pasta Jenkins (tem que estar no GIT)
